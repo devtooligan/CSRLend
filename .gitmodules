@@ -4,3 +4,6 @@
 [submodule "lib/solmate"]
 	path = lib/solmate
 	url = https://github.com/rari-capital/solmate
+[submodule "lib/2022-11-canto"]
+	path = lib/2022-11-canto
+	url = https://github.com/devtooligan/2022-11-canto
