@@ -104,9 +104,9 @@ contract CSRLend {
     /* IMMUTABLES
     **************************************************************************************************************************/
 
-    IBorrowerNFT public immutable borrowerNFT; // todo: create interface
-    ILenderNFT public immutable lenderNFT; // todo: create interface
-    ITurnstile public immutable turnstile; // todo: create interface
+    IBorrowerNFT public immutable borrowerNFT;
+    ILenderNFT public immutable lenderNFT;
+    ITurnstile public immutable turnstile;
     uint256 internal constant SECONDS_IN_A_YEAR = 31536000;
 
     /* STORAGE
