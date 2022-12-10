@@ -115,9 +115,6 @@ contract CSRLend {
     /// @dev mapping of csrNFTId to Auction info.
     mapping(uint256 => Auction) internal _auctions;
 
-    /// @dev mapping of csrNFTId to borrowerNFTId info for all active loans.
-    mapping(uint256 => uint256) internal _activeLoans;
-
     // @dev mapping of borrowerNFTId to Loan info.
     mapping(uint256 => LoanInfo) internal _loanInfo;
 
@@ -209,7 +206,6 @@ contract CSRLend {
         lenderNFTId = lenderNFT.safeMint(currentBid.bidder);
 
         // Create the loan.
-        _activeLoans[csrNFTId] = borrowerNFTId;
         _loanInfo[borrowerNFTId] =
             LoanInfo(auction.principalAmount, currentBid.rate, block.timestamp, csrNFTId, lenderNFTId, Status.ACTIVE);
         _payableInfo[lenderNFTId] = PayableInfo(0, borrowerNFTId);
@@ -337,9 +333,6 @@ contract CSRLend {
         // Mark loan as CLOSED.
         _loanInfo[borrowerNFTId].status = Status.CLOSED;
 
-        // Remove loan from active loans.
-        delete _activeLoans[loan.csrNFTId];
-
         // Burn the borrowerNFT
         borrowerNFT.burn(borrowerNFTId);
 
@@ -354,10 +347,6 @@ contract CSRLend {
 
     function auctions(uint256 csrNFTId) external view returns (Auction memory) {
         return _auctions[csrNFTId];
-    }
-
-    function activeLoans(uint256 csrNFTId) external view returns (uint256) {
-        return _activeLoans[csrNFTId];
     }
 
     function loanInfo(uint256 borrowerNFTId) external view returns (LoanInfo memory) {

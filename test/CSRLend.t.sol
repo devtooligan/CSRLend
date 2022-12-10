@@ -339,14 +339,12 @@ contract CSRLendTest__WithRepaidLoan is WithRepaidLoan {
     function testWithdrawNFT() public {
         assertEq(turnstile.ownerOf(csrNFTId1), address(core));
         assertEq(bnft.balanceOf(borrower), 1);
-        assertEq(core.activeLoans(csrNFTId1), bnftId);
         assertEq(bnft.ownerOf(bnftId), borrower);
         vm.prank(borrower);
         core.withdrawNFT(bnftId);
         assertEq(turnstile.ownerOf(csrNFTId1), borrower);
         assertEq(bnft.balanceOf(borrower), 0);
         assertTrue(core.loanInfo(bnftId).status == CSRLend.Status.CLOSED);
-        assertEq(core.activeLoans(csrNFTId1), 0x0);
     }
 
     function testWithDrawPayableAndBurnBothNFTs() public {
@@ -374,6 +372,5 @@ contract CSRLendTest__WithRepaidLoan is WithRepaidLoan {
         assertEq(turnstile.ownerOf(csrNFTId1), borrower);
         assertEq(bnft.balanceOf(borrower), 0);
         assertTrue(core.loanInfo(bnftId).status == CSRLend.Status.CLOSED);
-        assertEq(core.activeLoans(csrNFTId1), 0x0);
     }
 }

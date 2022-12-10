@@ -44,7 +44,6 @@ interface ICSRLend {
         uint256 borrowerNFTId;
     }
 
-    function activeLoans(uint256 csrNFTId) external view returns (uint256);
     function auctions(uint256 csrNFTId) external view returns (Auction memory);
     function bid(uint256 csrNFTId, uint256 rate) external payable;
     function borrowerNFT() external view returns (address);
