@@ -1,0 +1,6 @@
+forge-std/=lib/forge-std/src/
+canto/csr/=lib/2022-11-canto/Canto/contracts/
+openzeppelin/=lib/openzeppelin-contracts/contracts
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts
+solmate/=lib/solmate/src/
+abdk/=lib/abdk-libraries-solidity/

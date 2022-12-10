@@ -7,3 +7,10 @@
 [submodule "lib/2022-11-canto"]
 	path = lib/2022-11-canto
 	url = https://github.com/devtooligan/2022-11-canto
+[submodule "lib/openzeppelin-contracts"]
+	path = lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+	branch = v4.8.0
+[submodule "lib/abdk-libraries-solidity"]
+	path = lib/abdk-libraries-solidity
+	url = https://github.com/abdk-consulting/abdk-libraries-solidity
