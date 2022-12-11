@@ -4,7 +4,7 @@ Protocol for borrowing and lending against Contract Secured Revenue NFTs on the 
 ### Setup
 
 ```sh
-git clone git@github.com:devtooligan/CSRLend.git
+git clone <clone this repo>
 cd CSRLend
 forge install
 ```
