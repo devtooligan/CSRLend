@@ -17,10 +17,10 @@ forge test
 
 ### Deployment
 
-1. Prerequisites: This protocol is designed to work with a pre-existing CSR NFTcontract (turnstile) that has registered smart contracts.
-2. Deploy `BorrowerNFT.sol`, no constructor args needed. This and `LenderNFT` are the NFTs given to borrowers and lenders within the CSRLend protocol.
-3. Deploy `LenderNFT.sol`, no constructor args needed.
-3. Deploy the core contract, `CSRLend.sol` with the constructor args: addresses of the deployed turnstile, BorrowerNFT, and LenderNFT contracts.
+1. Prerequisites: This protocol is designed to work with a pre-existing CSR NFT contract - `Turnstile.sol`.
+2. Deploy `BorrowerNFT.sol`, no constructor args needed. This is the  NFT given to borrowers within the CSRLend protocol.
+3. Deploy `LenderNFT.sol`, no constructor args needed. This is the  NFT given to lenders and lenders within the CSRLend protocol.
+3. Deploy the core contract, `CSRLend.sol` with the constructor args: addresses of the deployed Turnstile, BorrowerNFT, and LenderNFT contracts.
 
 ```solidity
     constructor(Turnstile turnstile_, BorrowerNFT borrowerNFT_, LenderNFT lenderNFT_) {
@@ -57,7 +57,7 @@ Repayment can be made by anyone in two ways:
 
 ### Architectural Decisions
 
-Due to the complexity and uniqueness of the protocol, the initial design has been optimized for `security`, `readability` and `simplicity`.  It has _not_ been optimized for runtime gas. There is significant work that can be done that could reduce the gas usage by as much as 70-80%.  More details about this in the section below.
+Due to the complexity and uniqueness of the protocol, the initial design has been optimized for `security`, `readability` and `simplicity`.  It has _not_ been optimized for runtime gas. There is significant work that can be done that could reduce the gas usage by as much as 70-80% for some functions.  More details about this in the section below.
 
 ABDK 64x64 math library was used to achieve full precision on the interest rate calculations. The 64bit numbers were limited to 18 digits of precision to prevent overflow on larger values.  The interest formula was modeled in [Desmos](https://www.desmos.com/calculator/aw7omelxde) and the results were compared to the results of the Solidity functions using Foundry tests.
 
