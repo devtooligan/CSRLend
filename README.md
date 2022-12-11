@@ -23,7 +23,7 @@ forge test
 3. Deploy the core contract, `CSRLend.sol` with the constructor args: addresses of the deployed Turnstile, BorrowerNFT, and LenderNFT contracts.
 
 ```solidity
-    constructor(Turnstile turnstile_, BorrowerNFT borrowerNFT_, LenderNFT lenderNFT_) {
+    constructor(address turnstile_, address borrowerNFT_, address lenderNFT_) {
         turnstile = turnstile_;
         borrowerNFT = borrowerNFT_;
         lenderNFT = lenderNFT_;
