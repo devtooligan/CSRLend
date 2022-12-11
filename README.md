@@ -92,7 +92,7 @@ Custom Errors can be implemented optionally. There is debate within the Solidity
 
 Here are some specific ideas to optimize gas:
  - Structs can be much more tightly packed.  In the current version every item in a struct is a full 256 bit whereas in many cases even a 32bit type would suffice.
- - Certain mappings can be combined or removed all together.  If we wanted to store a lot of data off-chain then even more can be removed.  For example, there is currently a mapping of `borrowerNFTId` to `LoanInfo` as well as a mapping of `csrNFTId` to `borrowerNFTId` which is used to determine active loans. These two could be merged into a single mapping and an active loan could be inferred by its inclusion in the new mapping.
+ - Certain mappings can be combined or removed all together.  If we wanted to store a lot of data off-chain then even more can be removed.
  - We could probably do away with the `status` field on the loan altogether as the status can be computed based on comparisons with other fields.
 
  Implementing these solutions suggested above would offer a significant savings but it does come with some added complexity and risk.
